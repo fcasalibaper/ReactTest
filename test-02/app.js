@@ -7,7 +7,7 @@ var repo = {
   name             : "Fernando Casaliba",
   shortdescription : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eveniet, error quia vitae aliquid saepe.",
   repositorios     : 1,
-  seguidores       : 1,
+  seguidores       : 5,
   siguiendo        : 10,
   url              : "https://github.com/fcasalibaper",
   imageProfile     : "https://avatars1.githubusercontent.com/u/6304138?v=3"
@@ -100,4 +100,4 @@ var App = React.createClass ({
   }
 })
 
-ReactDOM.render(<App />,  document.getElementById('world'));
+ReactDOM.render(<App />, document.getElementById('root'));
