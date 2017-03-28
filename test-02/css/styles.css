@@ -1,30 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+@import "reset.css";
+@import "variables.css";
+@import "mixins.css";
 
 .ubuntu {
   font-family: 'Ubuntu', sans-serif;
-}
-
-/* RESET */
-:root {font-size: 14px;}
-* {box-sizing: border-box;}
-body,html {height:100%;min-height: 100%;}
-
-/* VARIABLES */
-$padd             : 2em;
-$size-profile-pic : 11rem;
-$fz               : 2.2em;
-
-/*COLORS*/
-$black      : 0,0,0;
-$white      : 255,255,255;
-$grey       : rgba($black, 0.28);
-$color-bg   : $black; 
-$pink       : rgb(247, 202, 201);
-$lightblue  : rgb(146,168,209);
-
-/*MIXINS*/
-@define-mixin bgLinear $color1 : $white, $color2 : $black, $porcentaje1 : 0%, $porcentaje2: 100%, $rotate : 180deg {
-  background-image: linear-gradient(to $rotate, $color1 $porcentaje1, $color2 $porcentaje2);
 }
 
 /* APP */
@@ -156,7 +135,7 @@ $lightblue  : rgb(146,168,209);
   }  
   
   /* IMAGENES */
-  &__images {    
+  &__images {
     /*IMAGE BG*/
     .app__bg {
       position: relative;
@@ -193,6 +172,7 @@ $lightblue  : rgb(146,168,209);
     text-align:center;
     h1 {
       font-size: $fz;
+      font-weight: 500;
       letter-spacing: 0.025em;
       color:$black;
       
@@ -221,6 +201,7 @@ $lightblue  : rgb(146,168,209);
     border-left: 0;
     border-right: 0;
     border-bottom: 0;
+
     
     /*LI´S*/
     &__features {

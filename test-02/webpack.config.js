@@ -14,30 +14,30 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
+        use:[
           'style-loader',
           {
-            loader: 'css-loader',
-            options: {
-                sourceMap: true,
-                importLoaders: 1,
-            }
+            loader:'css-loader',
+            options : {
+              modules :false,
+              importLoaders: 2
+            }            
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
+            loader:'postcss-loader',
+            options:{
+              plugins:function(){
                 return [
-                	require("postcss-import")({ addDependencyTo: webpack }),
-                  require('precss'),
-                  require('autoprefixer'),
-                  require('postcss-extend'),
-									require('postcss-mixins'),
-									require('postcss-nested'),
-									require('postcss-simple-vars'),
-									require('postcss-cssnext')
-                ];
+                  require("postcss-import")(),
+                  require("postcss-url")(),
+                  require("postcss-mixins")(),                  
+                  require("postcss-extend")(),                  
+                  require("postcss-nested")(),
+                  require("postcss-simple-vars")(),                  
+                  require("postcss-cssnext")({
+                    compress: true
+                  })                  
+                ]
               }
             }
           }

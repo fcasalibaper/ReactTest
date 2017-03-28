@@ -2,6 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// css
+import './css/styles.css';
+
 var API = 'https://api.github.com/users/fcasalibaper';
 var repo = {
   name             : "Fernando Casaliba",
