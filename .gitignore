@@ -1,4 +1,1 @@
-*.js
-*.npmignore
-test-02/node_modules/whet.extend/.travis.yml
-test-02/node_modules/*
+test-02/node_modules/
