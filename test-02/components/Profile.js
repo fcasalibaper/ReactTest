@@ -1,6 +1,5 @@
 // Libs
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 var API = 'https://api.github.com/users/fcasalibaper';
 const repo = {
@@ -100,4 +99,4 @@ const App = React.createClass ({
   }
 })
 
-export default 'Profile';
+export default App;
