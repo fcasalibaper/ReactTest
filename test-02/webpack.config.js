@@ -8,7 +8,7 @@ module.exports = {
 	module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js?$/,
         loaders: ['react-hot-loader','babel-loader'],
         exclude: /node_modules/        
       },
@@ -20,7 +20,7 @@ module.exports = {
             loader:'css-loader',
             options : {
               modules :false,
-              importLoaders: 2
+              //importLoaders: 2
             }            
           },
           {
