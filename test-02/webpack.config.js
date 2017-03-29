@@ -9,13 +9,13 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loaders: ['react-hot-loader','babel-loader'],
         exclude: /node_modules/        
       },
       {
         test: /\.css$/,
         use:[
-          'style-loader',
+          'style-loader',          
           {
             loader:'css-loader',
             options : {
