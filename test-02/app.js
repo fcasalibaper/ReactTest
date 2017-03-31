@@ -7,4 +7,6 @@ import './css/styles.css';
 // Componentes
 import App from './components/Profile';
 
-ReactDOM.render(<App />,document.getElementById('root'));
+// Render
+const approot = document.getElementById('root');
+ReactDOM.render(<App />, approot);

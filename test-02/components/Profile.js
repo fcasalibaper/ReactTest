@@ -11,30 +11,25 @@ const repo = {
   url              : "https://github.com/fcasalibaper",
   imageProfile     : "https://avatars1.githubusercontent.com/u/6304138?v=3"
 }
+
 const SearchBox = React.createClass({
+  getInitialState: function() {
+    return {typed: 'texto default'};
+  },
+  onChange: function(event) {
+    this.setState({typed: event.target.value});
+  },
   render: function() {
     return (
-      <input className="app__search" placeholder="search profile..."/>
+      <div>
+        <div>{this.state.typed}</div>
+        <input className="app__search" placeholder="search profile..." onChange={this.onChange}/>
+      </div>
     )
   }
 });
     
 const App = React.createClass ({
-  /*getDefaultProps: function() {
-    
-       fetch(API)
-            .then((response) => response.json())
-            .then((responseJson) => {
-               this.setState({
-                 'xyz' : responseJson.movies,
-                 'people' : [{'name':'something_else', 'email':'email@gmail.com'}, {'name':'morgan', 'email':'mogo@gmail.com'}]
-
-               });
-            });
-    
-    console.log(people.name)
-    
-  },*/
   getDefaultProps: function() {
     return {
       name             : repo.name,
@@ -65,7 +60,8 @@ const App = React.createClass ({
             </figure>
 
             <header className="app__name">
-              <h1>{this.props.name}
+              <h1>
+                {this.props.name}
                 <small>{this.props.shortdescription}</small>
               </h1>
               <a className="btn" href={this.props.url}><span>Profile</span></a>
