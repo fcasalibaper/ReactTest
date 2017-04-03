@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import './css/styles.css';
 
 // Componentes
-import App from './components/Profile';
+import App from './components/Layout';
 
 // Render
 const approot = document.getElementById('root');
