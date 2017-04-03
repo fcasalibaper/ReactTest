@@ -1,24 +1,26 @@
 // Libs
 import React from 'react';
 
-export default class Searchbox extends React.Component {
-	
+export default class Searchbox extends React.Component {	
+	// Default states
 	constructor() {
 		super();
 		this.state = {			
-			typed : ''			
+			username : ''			
 		}	
 	}
 
-	onChange(event) {
-		this.setState({typed : event.target.value})		
+	// input type 
+	update(event) {
+		const username = event.target.value;
+		this.props.changeUser(username);
 	}
 
-	render() { 
+	render() {		
    	return (
 			<form>
-				<div>{this.state.typed}</div>
-			  <input className="app__search" placeholder="search profile..." value={this.state.user} onChange={this.onChange.bind(this)}/>
+				<div>{this.props.username}</div>
+			  <input className="app__search" placeholder="search profile..." onChange={this.update.bind(this)}/>
 			</form>
 		)
  	}

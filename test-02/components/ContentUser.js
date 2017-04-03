@@ -11,7 +11,7 @@ export default class ContentUser extends React.Component {
   constructor() {
     super();   
     this.state = {
-      user             : 'fcasalibaper',
+      username         : 'fcasalibaper',      
       bio              : 'bio',
       name             : 'Fer',
       repositorios     : '3',
@@ -26,36 +26,47 @@ export default class ContentUser extends React.Component {
     };
   }
 
+  // change User state
+  changeUser(username) {
+    this.setState({username})    
+  }
+
   // Call AJAX´s
-  componentWillMount() {  
-    fetch(API+'fcasalibaper')  
-      .then((response) => {
-          return response.json()
+  componentWillMount() {          
+    let username = this.state.username;
+
+    let userUrl = API + username;
+
+    // fetch
+    fetch(userUrl)
+      .then((response) => {        
+        return response.json()
       })
       .then((data) => {
-          console.log(data)
-          this.setState({
-            user            : data.login,
-            bio             : data.bio,
-            name            : data.name,
-            repositorios    : data.public_repos,
-            seguidores      : data.followers,
-            siguiendo       : data.following,
-            repo_url        : data.repos_url,
-            seguidores_url  : data.followers_url,
-            siguiendo_url   : data.following_url,
-            url             : data.url,
-            email           : data.email,
-            imageProfile    : data.avatar_url
-          })
-
+        console.log(username);      
+        this.setState({
+          username        : data.login,
+          bio             : data.bio,
+          name            : data.name,
+          repositorios    : data.public_repos,
+          seguidores      : data.followers,
+          siguiendo       : data.following,
+          repo_url        : data.repos_url,
+          seguidores_url  : data.followers_url,
+          siguiendo_url   : data.following_url,
+          url             : data.url,
+          email           : data.email,
+          imageProfile    : data.avatar_url
+        })
       })
   }
 
   render() { 
     return (       
-      <div className="app__profile">      
-        <Searchbox />
+      <div className="app__profile">  
+
+        <Searchbox changeUser={this.changeUser.bind(this)} username={this.state.username}/>
+
         <div className="app__profile__content">
           <hgroup className="app__title">
             <h3>Github profile</h3>
@@ -72,9 +83,9 @@ export default class ContentUser extends React.Component {
             <h1>
               {this.state.name}
               <small>
-                {this.state.bio}
-                <a href={'mailto:'+this.state.email} target="_self">{this.state.email}</a>
+                {this.state.bio}                
               </small>
+              <a href={'mailto:'+this.state.email} target="_self">{this.state.email}</a>
             </h1>
             <a className="btn" href={this.state.url}><span>Profile</span></a>
           </header>
