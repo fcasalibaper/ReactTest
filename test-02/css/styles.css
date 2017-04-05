@@ -79,6 +79,14 @@ a {
   align-items:center;
   justify-content:center;  
   z-index: 9;
+
+  &__search__form {
+    width: 100%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:space-between;  
+    margin-bottom: $padd;
+  }
   
   /*SEARCH*/
   &__search {
@@ -89,8 +97,7 @@ a {
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    height: 50px;
-    margin-bottom: $padd;
+    height: 50px;    
     font-size: calc($fz/1.2);
     font-weight: 100;
     padding: calc($padd/1.2) 0;
@@ -103,6 +110,26 @@ a {
     &:hover,
     &:focus {
       outline:none;
+    }
+
+    /* BUTTON */
+    &__button {
+      position: relative;      
+      background-color: transparent;
+      border: 0;
+      color: $lightblue;      
+      /*width: 20%;*/
+      padding-left: 2em;
+      transition:all 200ms linear;
+      .material-icons {
+        cursor: pointer;
+        font-size: calc($fz * 1.4);
+      }
+      &:hover,
+      &:focus {
+        outline:none;
+        color: rgba($black);
+      }
     }
   }
   
