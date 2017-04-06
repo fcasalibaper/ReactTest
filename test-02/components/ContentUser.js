@@ -10,8 +10,8 @@ const API = 'https://api.github.com/users/';
 
 export default class ContentUser extends React.Component {
   // default States
-  constructor() {
-    super();   
+  constructor(props) {
+    super(props);   
     this.state = {
       username         : 'fat',      
       location         : 'bs.as.',
@@ -19,12 +19,9 @@ export default class ContentUser extends React.Component {
       repositorios     : '3',
       seguidores       : '3',
       siguiendo        : '6',
-      repo_url         : 'dsadasd',
-      seguidores_url   : 'hththth',
-      siguiendo_url    : 'dsadas',
       url              : '#',
       email            : 'p@gmail.com',
-      imageProfile     : 'https://avatars1.githubusercontent.com/u/6304138?v=3'    
+      imageProfile     : 'https://avatars1.githubusercontent.com/u/6304138?v=3'
     };
     this.changeUser = this.changeUser.bind(this);
   }
@@ -34,50 +31,11 @@ export default class ContentUser extends React.Component {
     this.setState({username})    
   }
 
- // componentWillMount() {
-  //  console.log('componentWillMount');
-  //  console.log(this.state.username);    
-  // }
-
-  // shouldComponentUpdate(nextProps,nextState){
-  //   console.log(nextProps);
-  //   console.log(nextState.username);
-  //   return nextState.username
-  // }
-
-  // componentWillMount() {
-    // console.log('Will Unmount'); 
-    // console.log(this.state.username);    
-  // }
-
-  // componentWillUpdate() {
-  //   let username = this.state.username;
-  //   let userUrl = API + username;
-  // }
-
-  // componentWillUnmount() {
-  //   console.log('Will Unmount');   
-  // }
-
-  // componentWillUpdate() {
-  //   let username = this.state.username;
-  //   let userUrl = API + username;
-  // }
-
-  // Call AJAX´s
-  componentDidMount() {        
-    this.dataSource();
-  }
-
-  // componentWillReceiveProps(nextState){
-  //   this.dataSource(nextState);
-  //   console.log(nextState);
-  // }
-
-  dataSource() {    
-    let username = this.state.username;
+  // funcion llamada API
+  dataSource(username) {  
+    console.log(username);      
     let userUrl = API + username;
-    console.log();
+    
     fetch(userUrl)
     .then((response) => {        
       return response.json()
@@ -90,22 +48,22 @@ export default class ContentUser extends React.Component {
         repositorios    : data.public_repos,
         seguidores      : data.followers,
         siguiendo       : data.following,
-        repo_url        : data.repos_url,
-        seguidores_url  : data.followers_url,
-        siguiendo_url   : data.following_url,
-        url             : data.url,
         email           : data.email,
         imageProfile    : data.avatar_url
       })
     })
-    .catch((error) => console.log('Oops! . There Is A Problem') )
-  }  
+  }
+
+  // Monta la funcion al inicar el render()
+  componentDidMount() {        
+    this.dataSource(this.state.username);
+  }
 
   render() { 
     return (       
       <div className="app__profile">  
 
-        <Searchbox changeUser={this.changeUser} username={this.state.username}/>
+        <Searchbox changeUser={this.changeUser} username={this.state.username} dataSource={this.dataSource.bind(this)}/>
 
         <div className="app__profile__content">
           <hgroup className="app__title">
@@ -127,7 +85,7 @@ export default class ContentUser extends React.Component {
               </small>
               <a href={'mailto:'+this.state.email} target="_self">{this.state.email}</a>
             </h1>
-            <a className="btn" href={this.state.url}><span>Profile</span></a>
+            <a className="btn" href={this.state.url} target="_blank"><span>Profile</span></a>
           </header>
 
           <ul className="app__data">

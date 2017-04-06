@@ -1,6 +1,5 @@
 // Libs
 import React from 'react';
-
 export default class Searchbox extends React.Component {	
 	// Default states
 	constructor() {
@@ -9,6 +8,7 @@ export default class Searchbox extends React.Component {
 			username : ''			
 		}
 		this.update = this.update.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	// input type 
@@ -18,13 +18,20 @@ export default class Searchbox extends React.Component {
 		this.props.changeUser(typed);
 	}
 
+	// Submit
+	handleSubmit(event) {
+	  event.preventDefault();	  
+	  let username = this.props.username; 
+	  this.props.dataSource(username);	  
+	  //console.log(username);
+	}
+
 	render() {		
    	return (
-   		<div >
-   			<div>{this.props.username}</div>
-				<form className="app__search__form" >					
+   		<div>
+				<form className="app__search__form" onSubmit={this.handleSubmit}>
 				  <input id="app__search" className="app__search" placeholder={this.props.username} onChange={this.update} />
-				  <a className="app__search__button"><i className="material-icons">search</i></a>
+				  <button type="submit" className="app__search__button"><i className="material-icons">search</i></button>
 				</form>
 			</div>
 		)

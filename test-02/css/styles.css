@@ -104,7 +104,14 @@ a {
     color: rgba($lightblue,0.9);
     
     &::placeholder {
-      color: rgba($lightblue,0.1);
+      color: rgba($pink,0.1);
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+     
     }
     
     &:hover,
@@ -155,7 +162,7 @@ a {
   
   /* PERFIL - contenedor */
   &__profile {
-    flex-basis : 47rem;
+    flex-basis : 39rem;
     position: relative;
     
     /*CONTENEDOR*/
@@ -200,6 +207,7 @@ a {
         position: relative;
         max-width:100%;
         height:auto;
+        transform: scale(1.037);
       }
     }
   }
