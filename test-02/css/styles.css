@@ -21,7 +21,7 @@ a {
 
 .btn {
   @extend .ubuntu;
-  margin-top: calc($padd/1.4);
+  margin-top: calc($padd/4);
   position: relative;
   display: inline-block;
   text-transform: uppercase;
@@ -111,7 +111,7 @@ a {
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
     input:-webkit-autofill:active {
-     
+      background-color: transparent !important;
     }
     
     &:hover,
@@ -174,10 +174,10 @@ a {
       box-shadow: 0 0.75px 1px $grey, 0 0.75px 1px rgba(0, 0, 0, 0.24);
       transition: all 200ms linear;
 
-      &:hover,
+      /*&:hover,
       &:focus {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-      }
+      }*/
     }
   }  
   
@@ -239,6 +239,7 @@ a {
   
   /*DATA*/
   &__data {
+    overflow: hidden;
     position: relative;
     margin-top:calc($padd / 3);    
     display:flex;
@@ -259,6 +260,17 @@ a {
       text-align:center;
       font-size: calc($fz / 1.2);
       font-weight: 500;
+      transition: all 200ms linear;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);      
+
+      &:hover {
+        @mixin bgLinear white, rgba($black, 0.03), 50%, 100%, -90deg;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.20),
+                    0 0 20px rgba(0, 0, 0, 0.2),
+                    0 0 10px rgba(0, 0, 0, 0.15),
+                    0 0 5px rgba(0, 0, 0, 0.1),
+                    0 0 1px rgba(0, 0, 0, 0.1);
+      }
       
       a {
         display: block;
