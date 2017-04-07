@@ -1,8 +1,5 @@
 // Libs
 import React from 'react';
-
-new Date(1372700873 * 1000)
-
 // Componente de Search
 import Searchbox from './Searchbox';
 
@@ -48,6 +45,7 @@ export default class ContentUser extends React.Component {
         repositorios    : data.public_repos,
         seguidores      : data.followers,
         siguiendo       : data.following,
+        url             : data.html_url,
         email           : data.email,
         imageProfile    : data.avatar_url
       })

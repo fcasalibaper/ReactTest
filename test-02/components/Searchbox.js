@@ -7,7 +7,9 @@ export default class Searchbox extends React.Component {
 		this.state = {			
 			username : ''			
 		}
+		// estado de tipero
 		this.update = this.update.bind(this);
+		// estado de submit
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -22,8 +24,7 @@ export default class Searchbox extends React.Component {
 	handleSubmit(event) {
 	  event.preventDefault();	  
 	  let username = this.props.username; 
-	  this.props.dataSource(username);	  
-	  //console.log(username);
+	  this.props.dataSource(username);	  	  
 	}
 
 	render() {		
