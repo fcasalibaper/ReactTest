@@ -104,7 +104,7 @@ a {
     color: rgba($lightblue,0.9);
     
     &::placeholder {
-      color: rgba($pink,0.1);
+      color: rgba($black,0.5);
     }
 
     input:-webkit-autofill,

@@ -1,11 +1,12 @@
 // Libs
 import React from 'react';
-export default class Searchbox extends React.Component {	
+
+export default class Searchbox extends React.Component {
 	// Default states
 	constructor() {
 		super();
-		this.state = {			
-			username : ''			
+		this.state = {
+			username : ''
 		}
 		// estado de tipero
 		this.update = this.update.bind(this);
@@ -22,12 +23,12 @@ export default class Searchbox extends React.Component {
 
 	// Submit
 	handleSubmit(event) {
-	  event.preventDefault();	  
-	  let username = this.props.username; 
-	  this.props.dataSource(username);	  	  
+	  event.preventDefault();
+	  let username = this.props.username;
+	  this.props.dataSource(username);	  
 	}
 
-	render() {		
+	render() {
    	return (
    		<div>
 				<form className="app__search__form" onSubmit={this.handleSubmit}>
