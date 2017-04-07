@@ -52,8 +52,8 @@ export default class ContentUser extends React.Component {
     })
   }
 
-  // Monta la funcion al inicar el render()
-  componentDidMount() {        
+  // Monta la funcion antes de inicar el render()
+  componentWillMount() {        
     this.dataSource(this.state.username);
   }
 
