@@ -14,7 +14,7 @@ export default class Searchbox extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	// input type 
+	// input type
 	update(event) {
 		event.preventDefault();
 		let typed = event.target.value;
@@ -25,15 +25,21 @@ export default class Searchbox extends React.Component {
 	handleSubmit(event) {
 	  event.preventDefault();
 	  let username = this.props.username;
-	  this.props.dataSource(username);	  
+	  this.props.dataSource(username);
 	}
 
 	render() {
    	return (
    		<div>
 				<form className="app__search__form" onSubmit={this.handleSubmit}>
-				  <input id="app__search" className="app__search" placeholder={this.props.username} onChange={this.update} />
-				  <button type="submit" className="app__search__button"><i className="material-icons">search</i></button>
+				  <input	id="app__search"
+									className="app__search"
+									placeholder={this.props.username}
+									onChange={this.update} />
+
+				  <button type="submit"	className="app__search__button">
+						<i className="material-icons">search</i>
+					</button>
 				</form>
 			</div>
 		)
