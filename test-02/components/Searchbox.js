@@ -31,7 +31,9 @@ export default class Searchbox extends React.Component {
 	render() {
    	return (
    		<div>
-				<form className="app__search__form" onSubmit={this.handleSubmit}>
+				<form className="app__search__form"
+							onSubmit={this.handleSubmit}>
+							
 				  <input	id="app__search"
 									className="app__search"
 									placeholder={this.props.username}
