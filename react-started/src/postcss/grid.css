@@ -1,0 +1,25 @@
+.contenedor {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.fila {
+  padding: 0 25px;
+  overflow: hidden;
+}
+
+@media (--only-800) {
+  .contenedor {
+		padding-left: 100px;
+	  padding-right: 100px;
+  }	
+}
+
+@media (--only-1200) {
+  .contenedor {
+		padding-left: 300px;
+		padding-right: 300px;
+  }   
+}

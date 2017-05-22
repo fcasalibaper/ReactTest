@@ -1,0 +1,14 @@
+.check-contenedor {
+  margin-top: 15px;
+  display: flex;
+}
+
+i {
+  color: var(--color-principal);
+  font-size: 22px;
+}
+
+.check-subtitulo {
+  font-size: 18px;
+  margin-left: 15px;
+}

@@ -1,0 +1,18 @@
+@import './normalize.css';
+
+@import './variables.css';
+
+@import './queries.css';
+
+@import './grid.css';
+
+@import './header.css';
+
+@import './home.css';
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-blanco);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
