@@ -29,6 +29,10 @@
       }
     }
 
+    .container {
+      max-width: 1250px;
+    }
+
     .row {
       @media (--xs) {
         padding-left: 0;
@@ -135,14 +139,14 @@
     }
 
     /* DESTACADOS PRIMARIOS Y SECUNDARIOS */
-    &__primarias,
-    &__secundarias {
+    &__primarias {
       position: relative;
       display: flex;
       justify-content:center;
       flex-wrap:wrap;
       width: 100%;
       overflow: hidden;
+      padding: 0 20px;
 
       @media (--xs) {
         display: inline-flex;
@@ -183,7 +187,7 @@
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
-          background-image: linear-gradient(83deg, #ff2a5b, $naranja);
+          background-image: linear-gradient(170deg, #cd3685, #6a2a92);
           color:$naranja;
 
           @media (--xs) {
@@ -251,7 +255,7 @@
         &:after {
           width: 0;
           height: 0;
-          background-image: linear-gradient(to top, #ff9319, #ff6222 56%, #ff3b49);
+          background-image: linear-gradient(90deg, #cd3685, #6a2a92);
           z-index: 0;
         }
 
@@ -267,68 +271,6 @@
             height: 100%;
             background-color: color(black a(2%)) !important;
           }
-        }
-      }
-    }
-
-    /* SECUNDARIAS */
-    &__secundarias {
-      padding-top: 2.5em;
-      /*@media (--xs) {
-        display: none;
-      }*/
-
-      .slick-track {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-      }
-      .landHotsale__destacadas__box {
-        flex-basis: 14.28571428571429%;
-        padding: 1.5em;
-        flex-wrap: nowrap;
-
-        @media (--menor-a-sm) {
-          flex-basis: 20%;
-        }
-
-        /* LINES RIGHT */
-        &:before {
-          content:'';
-          position: absolute;
-          top: 10%;
-          right: 0;
-          width: 1px;
-          height: 60%;
-          background-color: $grey_ee;
-        }
-
-        &:last-child {
-          &:before {
-            display: none;
-          }
-        }
-
-        &:hover,
-        &:focus {
-          h4 {
-            text-decoration: underline;
-            color:$active_hover;
-          }
-        }
-      }
-
-      .landHotsale__destacadas__box__img {
-        max-width: 86px;
-        min-height: 90px;
-      }
-
-      .landHotsale__destacadas__title {
-        h4 {
-          font-size: 14px;
-          font-weight: 500;
-          line-height: 1.14;
-          letter-spacing: -0.3px;
         }
       }
     }

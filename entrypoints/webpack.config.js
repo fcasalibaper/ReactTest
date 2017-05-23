@@ -33,12 +33,11 @@ module.exports = {
         test: /\.css$/,
 				// include: path.join(__dirname, "src"),
         use:[
-          { loader: "style-loader" },
-          { loader: "css-loader",
-            options : {
-              modules:true,
-              localIdentName: '[local]--[hash:base64:10]'
-            }
+          {
+            loader:'style-loader'
+          },
+          {
+            loader:'css-loader'
           },
           {
             loader:'postcss-loader',
@@ -81,6 +80,7 @@ module.exports = {
       hash:true,
       chunks: ['home']
     }),
+
     new HtmlWebpackPlugin({
       title: 'vitrinas',
       minify : {
@@ -91,8 +91,5 @@ module.exports = {
       hash:true,
       chunks: ['vitrinas']
     })
-
-    // Print more redable modules names in browser console
-    // new webpack.NamedModulesPlugin()
   ]
 };

@@ -7,6 +7,7 @@ $padd_lis    : 1.25em;
 .listaDestacada {
   position: relative;
   width: 100%;
+  margin-bottom: 19.5px;
 
   /* BACKGROUND GRADIENT SECTION */
   &:before {
@@ -39,6 +40,14 @@ $padd_lis    : 1.25em;
   &.open {
     ul {
       height: auto !important;
+    }
+  }
+
+  .container {
+    max-width: 1230px;
+
+    @media (--menor-a-sm) {
+      width: 100%;
     }
   }
 
@@ -157,7 +166,7 @@ $padd_lis    : 1.25em;
             width: calc($sz + 100%);
             height: calc($sz + 100%);
             z-index: -10;
-            background-image: linear-gradient(to top, $rojo, $naranja);
+            background-image: linear-gradient(to top, #f22d68, #a5197e 98%);
           }
 
           .image {
@@ -190,6 +199,7 @@ $padd_lis    : 1.25em;
         padding-top: 1em;
         display: flex;
         flex-wrap:wrap;
+        flex-direction: row;
         align-items:flex-end;
         font-size: 14px;
 
@@ -248,8 +258,9 @@ $padd_lis    : 1.25em;
             white-space:nowrap;
             letter-spacing: -0.3px;
             font-size: 0.95em;
-            background-image: linear-gradient(70deg, $rojo, $naranja) !important;
-            border: 1px solid $rojo;
+            background-image: transparent;
+            border: 1px solid $magenta;
+            background-color: $magenta;
             color:white;
 
             @media (--xs) {
@@ -258,7 +269,7 @@ $padd_lis    : 1.25em;
 
             &:after {
               -webkit-background-clip: text;
-              color:white !important;
+              color:white;
             }
           }
         }
@@ -355,7 +366,7 @@ $padd_lis    : 1.25em;
       &:nth-child(9),
       &:nth-child(16) {
         flex-basis:40%;
-        display: flex;
+        display: inline-flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -417,6 +428,7 @@ $padd_lis    : 1.25em;
 
             /* TITULO */
             h5 {
+              color:black;
               display: block;
               margin-top: calc($padd * 2.7);
               font-size: 15px;
@@ -440,61 +452,26 @@ $padd_lis    : 1.25em;
 
             }
             .pill{
-              border-radius: 2px;
-              border: solid 1px $rojo;
-              float: left;
-              display: flex;
-              flex-direction: row;
-              justify-content:center;
-              align-items:center;
-              font-size: 0.9em;
-              line-height: 1;
-              margin-top: calc($padd * 2.7);
+              margin-top: 0.7em;
+              font-size: 0.78em;
+              align-items: flex-start;
+              justify-content: flex-start;
 
               @media (--xs) {
                 font-size: 0.715760em;
               }
-
-              /* OFERTA HOT */
-              &:before {
-                content:'OFERTA HOT';
-                flex-basis:50%;
-                position: relative;
-                padding: 0 calc($padd * 1.5);
-                /*font-size: 13px;*/
-                font-size: 0.81em;
-                font-weight: 500;
-                letter-spacing: -0.3px;
-                color: $rojo;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-                white-space:nowrap;
-
-                @media (--xs) {
-                  font-size: 1.1em;
-                }
-              }
-
-              .ListPriceMinusBestPriceInPercent {
-                flex-basis:50%;
-                background-image: linear-gradient(70deg, $rojo, $naranja) !important;
-                color:white;
-                padding: $padd calc($padd * 1.5);
-                font-size: 1em;
-                letter-spacing: -0.4px;
-                border-radius:0;
-
-                &:after {
-                  -webkit-background-clip: text;
-                  background-clip: text;
-                  -webkit-text-fill-color: white;
-                  color:white !important;
-                }
-              }
             }
             .HightLight {
               order:-1;
-              height: 35px;
+              height: auto;
+              position: relative;
+              display: inline-flex;
+              .flag {
+                position: relative;
+                &.hotsale {
+                  top: 0;
+                }
+              }
             }
           }
         }

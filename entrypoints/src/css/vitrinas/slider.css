@@ -8,6 +8,18 @@
     overflow:hidden;
     padding: 0 calc($padd_content);
 
+    .slick-slide {
+      display: none;
+      overflow: hidden;
+
+    }
+
+    &.slick-initialized  .slick-slide {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* BUTTONS */
     .slick-arrow {
       $ml  : 1.15em;

@@ -33,8 +33,8 @@
     .ListPriceMinusBestPriceInPercent {
       top: 0;
       left: 0;
-      background-image: linear-gradient(70deg, $rojo, $naranja) !important;
-      border: 1px solid $rojo;
+      background-color: $magenta;
+      border: 1px solid $magenta;
       border-radius: 2px;
       padding: 1px 4px;
       font-weight: 500;

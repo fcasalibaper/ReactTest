@@ -21,6 +21,26 @@
   }
 }
 
+.line--top {
+  border-top: 1px solid $grey_dd
+}
+
+.gradient--top {
+  padding: 1.667em 0 0;
+
+  .vitrina {
+    margin-bottom: 0;
+  }
+  &:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0));
+  }
+}
 /* --------------------------------------------- */
 
 /* CLASES GENERALES  EL SITIO */

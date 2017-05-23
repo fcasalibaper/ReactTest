@@ -5,35 +5,36 @@
 
   &.slick-slider {
     position: relative;
-    overflow:hidden;
+    display: block;
     padding: 0;
     user-select: none;
     touch-action: pan-y;
 
-    &:hover,
-    &:focus {
-      .slick-arrow.slick-prev {
-        left: 0 !important;
-      }
-      .slick-arrow.slick-next {
-        right: 0 !important;
-      }
-    }
-
     /* BUTTONS */
     .slick-arrow {
       $ml  : 1.15em;
-      $height_arrow : 5em;
+      $width_arrow : 34px;
+      $height_arrow : 52px;
 
       position: absolute;
       z-index: 9;
       cursor: pointer;
       top:50%;
       margin-top: -calc($height_arrow/2);
-      border: 0;
+      width: $width_arrow;
       height: $height_arrow;
+      border: 0;
       padding: 0;
       background-color: transparent;
+      outline: 0;
+
+      @media (--xs) {
+        display: none !important;
+      }
+
+      &.slick-hidden {
+        display: none;
+      }
 
       &:hover,
       &:focus {
@@ -41,52 +42,72 @@
       }
 
       i {
+        background-size: 68px $height_arrow;
         position: relative;
+        width: $width_arrow;
+        height: $height_arrow;
         display: block;
-        font-size: 3.5em;
-        color: color($black a(40%));
-
-        @media (--xs) {
-          font-size: 2.5em;
+        background-image: url('http://fravega.vteximg.com.br/arquivos/arrows-rd.png');
+        &:after {
+          content:'';
+          display: none;
         }
       }
 
       /* PREV */
       &.slick-prev {
-        left:-$height_arrow;
+        left:calc($width_arrow/2);
         i {
-          left: 50%;
-          transform:translateX(-50%);
+          background-position: 0 0;
         }
+
       }
 
       /* NEXT */
       &.slick-next {
-        right:-$height_arrow;
+        right:calc($width_arrow/2);
         i {
-          right: 50%;
-          transform:translateX(50%);
+          background-position: $width_arrow 0;
         }
       }
     }
 
-    .slick-track {
-      display: flex;
-      flex-wrap: wrap;
+    .slick-track  {
+      position: relative;
+      width: 100%;
+      top: 0;
+      left: 0;
+      display: inline-flex;
+      flex-direction: row;
+      transform: translate3d(0, 0, 0);
+
+      &:before,
+      &:after {
+        display: table;
+        content: '';
+      }
+      &:after {
+        clear: both;
+      }
     }
 
-    /* SLIDE */
-    .slick-slide {
+    .slick-list  {
+      position: relative;
       display: flex;
-      flex-direction:column;
-      outline:none;
-    }
-
-    /* CONTENT LIS */
-    .slick-list {
-      background-color: $white;
+      flex-direction: row;
       overflow: hidden;
-      border-radius: 2px;
+      margin: 0;
+      padding: 0;
+      transform: translate3d(0, 0, 0);
+
+      &:focus {
+        outline: none;
+      }
+
+      &.dragging {
+        cursor: pointer;
+        cursor: hand;
+      }
     }
 
     /* DOTS */
@@ -105,8 +126,8 @@
         margin-right: 5px;
 
         button {
-          $sz : 15px;
-          
+          $sz : 10px;
+
           text-align:center;
           position: relative;
           width: $sz;
@@ -127,6 +148,46 @@
           }
         }
       }
+    }
+
+    /* SLICK-SLIDE */
+    .slick-slide {
+      display: none;
+      height: 100%;
+      min-height: 1px;
+      overflow: hidden;
+
+      &.slick-loading {
+        img {
+          display: none;
+        }
+      }
+
+      img {
+        opacity:0;
+        transition: all 150ms linear;
+        display: block;
+        position: relative;
+        left: 50%;
+        transform:translateX(-50%);
+      }
+
+      /* ACTIVE */
+      &.slick-active {
+        z-index: 1;
+        img {
+          opacity:1;
+        }
+      }
+    }
+
+    .slick-slide.dragging img {
+      pointer-events: none;
+    }
+    &.slick-initialized  .slick-slide {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

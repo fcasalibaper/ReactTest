@@ -1,5 +1,6 @@
-@import '../css/styles.css';
+@import './../css/styles.css';
 
-body {
-  background-color: red;
+
+.container {
+  max-width: 1200px;
 }
