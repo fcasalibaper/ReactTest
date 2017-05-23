@@ -9,6 +9,7 @@ export default class ContentUser extends React.Component {
   // default States
   constructor(props) {
     super(props);
+
     this.state = {
       username         : 'fcasalibaper',
       location         : '',
@@ -20,6 +21,7 @@ export default class ContentUser extends React.Component {
       email            : '',
       imageProfile     : ''
     };
+
     this.changeUser = this.changeUser.bind(this);
   }
 
@@ -30,7 +32,6 @@ export default class ContentUser extends React.Component {
 
   // funcion llamada API
   dataSource(username) {
-    console.log(username);
     let userUrl = API + username;
 
     fetch(userUrl)
@@ -57,13 +58,16 @@ export default class ContentUser extends React.Component {
     this.dataSource(this.state.username);
   }
 
-  render() {
+  render() {    
     return (
+
       <div className="app__profile">
 
         <Searchbox  changeUser={this.changeUser}
                     username={this.state.username}
                     dataSource={this.dataSource.bind(this)}/>
+
+
 
         <div className="app__profile__content">
           <hgroup className="app__title">

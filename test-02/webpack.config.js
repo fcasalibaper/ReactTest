@@ -8,20 +8,26 @@ module.exports = {
 	module: {
     rules: [
       {
-        test: /\.js?$/,
-        loaders: ['react-hot-loader','babel-loader'],
-        exclude: /node_modules/        
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options:{
+          presets: [
+            ['es2015',{ "modules": false }],
+            ['react']
+          ],
+        }
       },
       {
         test: /\.css$/,
         use:[
-          'style-loader',          
+          'style-loader',
           {
             loader:'css-loader',
             options : {
               modules :false,
               //importLoaders: 2
-            }            
+            }
           },
           {
             loader:'postcss-loader',
@@ -30,13 +36,13 @@ module.exports = {
                 return [
                   require("postcss-import")(),
                   require("postcss-url")(),
-                  require("postcss-mixins")(),                  
-                  require("postcss-extend")(),                  
+                  require("postcss-mixins")(),
+                  require("postcss-extend")(),
                   require("postcss-nested")(),
-                  require("postcss-simple-vars")(),                  
+                  require("postcss-simple-vars")(),
                   require("postcss-cssnext")({
                     compress: true
-                  })                  
+                  })
                 ]
               }
             }

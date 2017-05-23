@@ -7,13 +7,13 @@
 }
 
 a {
-  outline: none; 
+  outline: none;
   color:$grey;
   text-decoration: none;
-  transition: all 200ms linear;               
+  transition: all 200ms linear;
 
   &:hover,
-  &:focus {          
+  &:focus {
     color: $lightblue !important;
   }
 }
@@ -37,10 +37,10 @@ a {
   letter-spacing: 0.08em;
   overflow: hidden;
   box-shadow: 0 0 0 rgba(146,168,209, 0), 0 0 0 rgba(146,168,209, 0);
-  
+
   /*RECUADRO BLANCO*/
   &:after {
-    $size: 2px;    
+    $size: 2px;
     content:'';
     position: absolute;
     border-radius:100px;
@@ -50,7 +50,7 @@ a {
     height: calc(100% - $size*2);
     background-color: white;
   }
-  
+
   &:hover,
   &:focus {
     text-decoration:none;
@@ -59,7 +59,7 @@ a {
     box-shadow: 0 14px 28px rgba(146,168,209, 0.15), 0 10px 10px rgba(146,168,209, 0.12);
     @mixin bgLinear $pink, $lightblue, 0%, 70%, -80deg;
   }
-  
+
   span {
     position: relative;
     color:$lightblue;
@@ -70,24 +70,24 @@ a {
 
 /*--------------------------*/
 .app {
-  @extend .ubuntu;  
+  @extend .ubuntu;
   padding: 0;
   margin: 0;
   height:100%;
   min-height: 100%;
   display:flex;
   align-items:center;
-  justify-content:center;  
+  justify-content:center;
   z-index: 9;
 
   &__search__form {
     width: 100%;
     display:inline-flex;
     align-items:center;
-    justify-content:space-between;  
+    justify-content:space-between;
     margin-bottom: $padd;
   }
-  
+
   /*SEARCH*/
   &__search {
     width: 100%;
@@ -97,12 +97,12 @@ a {
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    height: 50px;    
+    height: 50px;
     font-size: calc($fz/1.2);
     font-weight: 100;
     padding: calc($padd/1.2) 0;
     color: rgba($lightblue,0.9);
-    
+
     &::placeholder {
       color: rgba($black,0.5);
     }
@@ -113,7 +113,7 @@ a {
     input:-webkit-autofill:active {
       background-color: transparent !important;
     }
-    
+
     &:hover,
     &:focus {
       outline:none;
@@ -121,10 +121,10 @@ a {
 
     /* BUTTON */
     &__button {
-      position: relative;      
+      position: relative;
       background-color: transparent;
       border: 0;
-      color: $lightblue;      
+      color: $lightblue;
       /*width: 20%;*/
       padding-left: 2em;
       transition:all 200ms linear;
@@ -139,13 +139,13 @@ a {
       }
     }
   }
-  
+
   /*TITLE*/
   &__title {
     z-index: 1;
     padding: $padd;
     position:absolute;
-    width: 100%;    
+    width: 100%;
     left: 0;
     h3 {
       font-size: calc($fz/1.1);
@@ -159,16 +159,16 @@ a {
                    2px 2.45px 3px rgba($black, 0.1);
     }
   }
-  
+
   /* PERFIL - contenedor */
   &__profile {
     flex-basis : 39rem;
     position: relative;
-    
+
     /*CONTENEDOR*/
     &__content {
       background-color: white;
-      overflow: hidden;      
+      overflow: hidden;
       padding:0;
       border-radius: 10px;
       box-shadow: 0 0.75px 1px $grey, 0 0.75px 1px rgba(0, 0, 0, 0.24);
@@ -179,22 +179,22 @@ a {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
       }*/
     }
-  }  
-  
+  }
+
   /* IMAGENES */
   &__images {
     /*IMAGE BG*/
     .app__bg {
       position: relative;
-      width: calc(100% + $padd*2);      
+      width: calc(100% + $padd*2);
       height: 17rem;
       background-color: red;
       @mixin bgLinear $pink, $lightblue, 0%, 55%, 45deg;
       z-index: 0;
     }
-    
+
     /*IMAGEN PERFIL*/
-    .app__profilePic {      
+    .app__profilePic {
       position: relative;
       display:block;
       background-color: rgba($white,1);
@@ -211,10 +211,10 @@ a {
       }
     }
   }
-  
+
   /*NAME & DESCRIPTION*/
   &__name {
-    padding: 0 $padd $padd; 
+    padding: 0 $padd $padd;
     margin-top: calc($padd / 1.2);
     width: 100%;
     text-align:center;
@@ -223,7 +223,7 @@ a {
       font-weight: 500;
       letter-spacing: 0.025em;
       color:$black;
-      
+
       /*SHORT DESCRIPTION*/
       small,
       a {
@@ -232,16 +232,16 @@ a {
         color:$grey;
         font-size: 0.7em;
         line-height: 1.2;
-        letter-spacing: 0.02em;      
-      }     
-    }    
+        letter-spacing: 0.02em;
+      }
+    }
   }
-  
+
   /*DATA*/
   &__data {
     overflow: hidden;
     position: relative;
-    margin-top:calc($padd / 3);    
+    margin-top:calc($padd / 3);
     display:flex;
     align-items:center;
     justify-content:space-around;
@@ -252,16 +252,16 @@ a {
     border-right: 0;
     border-bottom: 0;
 
-    
+
     /*LI´S*/
     &__features {
-      flex-grow:1;      
+      flex-grow:1;
       color:rgba($black,1);
       text-align:center;
       font-size: calc($fz / 1.2);
       font-weight: 500;
       transition: all 200ms linear;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);      
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 
       &:hover {
         @mixin bgLinear white, rgba($black, 0.03), 50%, 100%, -90deg;
@@ -271,7 +271,7 @@ a {
                     0 0 5px rgba(0, 0, 0, 0.1),
                     0 0 1px rgba(0, 0, 0, 0.1);
       }
-      
+
       a {
         display: block;
         height: 100%;
@@ -280,11 +280,11 @@ a {
         text-decoration:none;
         color:rgba($black,1);
       }
-      
+
       &:nth-child(2) {
-        border-left: 2px solid rgba($black, 0.10);        
+        border-left: 2px solid rgba($black, 0.10);
         border-right: 2px solid rgba($black, 0.10);
-      }      
+      }
       span {
         display:block;
         margin-top: 0.5em;

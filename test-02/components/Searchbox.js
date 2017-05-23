@@ -3,13 +3,15 @@ import React from 'react';
 
 export default class Searchbox extends React.Component {
 	// Default states
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+
 		this.state = {
 			username : ''
 		}
-		// estado de tipero
+		// estado de tipeo
 		this.update = this.update.bind(this);
+
 		// estado de submit
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -30,12 +32,11 @@ export default class Searchbox extends React.Component {
 
 	render() {
    	return (
-   		<div>
+   		<div>				
 				<form className="app__search__form"
 							onSubmit={this.handleSubmit}>
-							
-				  <input	id="app__search"
-									className="app__search"
+
+				  <input	id="app__search" className="app__search"
 									placeholder={this.props.username}
 									onChange={this.update} />
 
