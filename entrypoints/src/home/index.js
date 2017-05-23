@@ -1,1 +1,3 @@
-console.log('hello')
+import style from './styles.css'
+
+console.log('home')

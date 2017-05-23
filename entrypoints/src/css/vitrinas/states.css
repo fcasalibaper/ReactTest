@@ -1,0 +1,119 @@
+/*
+  ESTADOS, SON LAS CLASES QUE SE AGREGAN POR JS,
+  EJ: '.conCero', SE SUMA CUANDO EL DESCUENTO TIENE UN DESCUENTO IGUAL CERO(LO PONE ES DISPLAY:NONE)
+*/
+.pill {
+  /*////////////////////////
+  // PILL                //
+  // Caso: 0% (cero %)   //
+  ////////////////////////*/
+
+  &.conCero {
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+    display: none !important;
+    >.ListPriceMinusBestPriceInPercent {
+      display: none;
+      margin-right: 0;
+    }
+    >.coutasPill {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /*///////////////////////////////////////////////////////
+  // PILL                                               //
+  // Caso: si las cuotas son mayor a 1 hasta 11 cuotas  //
+  ///////////////////////////////////////////////////////*/
+  /*&.menor-a-11 {
+    .coutasPill {
+      background-color: $bg_color_cuotas_menor_a_11;
+      border-color: $magenta;
+      color: $magenta;
+      .NumbersOfInstallment {
+        color: $magenta !important;
+      }
+      .cuotas__txt {
+        color: $magenta !important;
+      }
+    }
+  }*/
+
+  /*//////////////////////////////////////////////////////////
+  // PILL                                                  //
+  // Caso: si las cuotas son mayor o = 12 hasta 17 cuotas  //
+  //////////////////////////////////////////////////////////*/
+  /*&.mayor-a-12 {
+    .coutasPill {
+      background-color: $magenta;
+      border-color: $magenta;
+      em {
+        color: $blanco;
+      }
+    }
+  }*/
+
+  /*///////////////////////////////////////////////////////
+  // PILL                                               //
+  // Caso: si las cuotas son mayor o igual a 18 cuotas  //
+  ///////////////////////////////////////////////////////*/
+  /*&.mayor-a-18 {
+    .coutasPill {
+      //@include border-right-radius(50px);
+      background-color: $bg_color_cuotas_mayores_a_18;
+      border-color: $color_borde_mayores_a_18;
+      em {
+        color: $blanco;
+      }
+    }
+  }*/
+}
+
+.slick-slide {
+  /*//////////////////////////
+  // Precio de Lista vacio //
+  //////////////////////////*/
+
+  &.listVacio {
+    .coutasPill {
+      -webkit-background-clip: padding-box;
+      -moz-background-clip: padding;
+      background-clip: padding-box;
+      .coutas {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+    .BestPrice {
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  /*///////////////////
+  // Una Sola Cuota //
+  ///////////////////*/
+
+  &.menos-de-uno {
+    .pill {
+      .ListPriceMinusBestPriceInPercent {
+        &:after {
+          display: none;
+        }
+      }
+      .coutasPill {
+        display: none;
+      }
+    }
+    a {
+      .coutas {
+        span.InstallmentValue ,span.exis, span.sin-interes {
+          display: none;
+        }
+      }
+    }
+  }
+}

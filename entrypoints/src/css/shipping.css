@@ -1,0 +1,169 @@
+/*-----------------------------------
+  MEDIOS DE PAGO - RETIRO Y ENVIOS
+-----------------------------------*/
+
+.landHotsale__productShip {
+  position: relative;
+
+  .row {
+    padding-top: 1.1em;
+    padding-bottom: 1.1em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:center;
+
+    @media (--menor-a-sm) {
+      flex-direction: column;
+      align-items:flex-start;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: row;
+    /*justify-content:space-between;*/
+    align-items:center;
+    flex-grow:1;
+
+    @media (--menor-a-sm) {
+      flex-direction: column;
+      align-items:flex-start;
+      width: 100%;
+    }
+
+    &:nth-child(2) {
+      justify-content:space-between;
+    }
+  }
+
+  /* TARJETAS */
+  &__box--cuotas {
+    flex-grow:0.3;
+    .landHotsale__productShip__cards {
+      padding-left: 2em;
+      padding-right: 2em;
+
+      @media (--menor-a-sm) {
+        padding: 1.5em;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  /* TEXTO GENERAL */
+  &__text {
+    color:black;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+
+    @media (--menor-a-sm) {
+      font-size: 16px;
+    }
+
+    a {
+      font-weight: 400;
+      color:$active_hover;
+      display: block;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* LINEAS SEPARADORAS */
+  .separator {
+    position: relative;
+    display: block;
+    background-color: $grey_ee;
+    width: 1px;
+    height: 50px;
+    margin-right: 10px;
+
+    @media (--menor-a-sm) {
+      width: 100%;
+      height: 1px;
+    }
+  }
+
+  /* RETIRO - ENVIOS */
+  &__box__content__ship {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+
+    .landHotsale__productShip__text {
+      flex-grow:1;
+      font-size: 19px;
+      line-height: 0.95;
+      letter-spacing: -0.3px;
+      font-weight: 600;
+
+      @media (--menor-a-sm) {
+        font-size: 16px;
+      }
+
+      span {
+        font-weight: 400;
+        font-size: 0.95em;
+        letter-spacing: -0.6px;
+      }
+    }
+  }
+
+  /* ICONS */
+  &__icon {
+    $ss : 60px;
+
+    flex-grow: 1;
+    position: relative;
+    padding: 1em;
+    width: $ss;
+    height: $ss;
+    margin-right: 2em;
+
+    @media (--menor-a-sm) {
+      padding-left: 0;
+      width: auto;
+      margin-right: 1em;
+    }
+
+    /* BG-COLOR CIRCULO */
+    &:before {
+      content:'';
+      background-color: $grey_fa;
+      position: absolute;
+      width: $ss;
+      height: $ss;
+      z-index: -1;
+      top:50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      border-radius: 100%;
+
+      @media (--menor-a-sm) {
+        display: none;
+      }
+    }
+
+    img {
+      position: relative;
+      top:50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+
+      @media (--menor-a-sm) {
+        min-width: 30px;;
+        max-width: 30px;;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+/*
+  ESTILOS GENREALES
+*/
+.sliderPrincipal {
+  background-color: $grey_fa;
+  .container {
+    max-width: 1500px;
+  }
+}
+
+.box-banners {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+.full-banner {
+  position:relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+
+  .box-banner {
+    position: relative;
+    float: left;
+
+    a {
+      outline:none;
+      img {
+        display: block;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

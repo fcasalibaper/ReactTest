@@ -1,37 +1,43 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require("path");
+var path = require('path');
 
-// ENTRY POINTS
-var entrys = {
-	home 			: './src/home/index.js',
-	vitrinas 	: './src/vitrinas/index.js'
+var entries = {
+  home: ['./src/home/index.js'],
+  vitrinas: ['./src/vitrinas/index.js']
 }
 
 module.exports = {
-	context: path.resolve(__dirname, './src'),
-	entry: './src/home/index.js',
-	output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].bundle.js',
+  context: __dirname,
+  entry: entries,
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js'
   },
 
 	module: {
     rules: [
       {
-        test: /\.js?$/,
-        loaders: ['babel-loader'],
-        exclude: '/node_modules/'
+        test: /\.jsx|\.js$/,
+        loader: 'babel-loader',
+				// include: path.join(__dirname, "src"),
+        exclude: /node_modules/,
+        options:{
+          presets: [
+            ['es2015',{ "modules": false }],
+            ['react']
+          ],
+        }
       },
       {
         test: /\.css$/,
+				// include: path.join(__dirname, "src"),
         use:[
-          'style-loader',
-          {
-            loader:'css-loader',
+          { loader: "style-loader" },
+          { loader: "css-loader",
             options : {
-              modules :false
-              //importLoaders: 2
+              modules:true,
+              localIdentName: '[local]--[hash:base64:10]'
             }
           },
           {
@@ -56,33 +62,37 @@ module.exports = {
       }
 		]
 	},
-
-	// SERVER
-	devServer : {
-		contentBase: path.resolve(__dirname, './src'),
-		port:2332,
-		compress: true,
-		stats: 'errors-only',
-		open: true
-	},
-
-	// PLUGINS
-	plugins: [
-
-		// HOME
-		new HtmlWebpackPlugin({
-      title: 'Home',
-			chunks: ['home'],
-			filenmae: './home/index.html',
-      template: './home/index.html'
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    compress: true,
+    hot: false,
+    open:true,
+    stats: "errors-only",
+    port: 2323
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'home',
+      minify : {
+        collapseWhitespace:false
+      },
+      filename:'./home/index.html',
+      template: './src/home/index.html',
+      hash:true,
+      chunks: ['home']
     }),
-
-		// VITRINAS
-		new HtmlWebpackPlugin({
-      title: 'Vitrinas',
-			chunks: ['vitrinas'],
-			filenmae: './vitrinas/index.html',
-      template: './vitrinas/index.html'
+    new HtmlWebpackPlugin({
+      title: 'vitrinas',
+      minify : {
+        collapseWhitespace:false
+      },
+      filename:'./vitrinas/index.html',
+      template: './src/vitrinas/index.html',
+      hash:true,
+      chunks: ['vitrinas']
     })
-	]
+
+    // Print more redable modules names in browser console
+    // new webpack.NamedModulesPlugin()
+  ]
 };

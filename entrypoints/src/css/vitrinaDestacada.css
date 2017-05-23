@@ -1,0 +1,239 @@
+/*----------------------------------
+ VITRINAS DE 3 PRODUCTOS DESTACADOS
+-----------------------------------*/
+
+.landHotsale {
+
+  .vitrinas__ofertas {
+    position: relative;
+    width: 70%;
+
+    @media (--xs) {
+      width: 100%;
+    }
+
+    @media (--sm) {
+      width: 100%;
+    }
+
+    .deals {
+      display: none;
+    }
+
+    h2 {
+      display: none;
+    }
+
+    ul {
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+
+       @media (--xs) {
+         flex-direction: column;
+       }
+
+      li {
+        position: relative;
+        flex-grow: 1;
+        width: 33.33333%;
+        border:0;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+        transition: all 350ms $cubic-out;
+        border-radius: 2px;
+
+        @media (--xs) {
+          padding: 1em 0;
+          display: flex;
+          flex-direction: row;
+          justify-content:center;
+          align-items:center;
+          border-bottom: 1px solid $grey_ee;
+          width: 100%;
+
+          &:nth-child(3) {
+            border-bottom: 0;
+          }
+        }
+
+        /* HOVER */
+        &:hover,
+        &:focus {
+          background-color: color($grey_c3 a(6%));
+          box-shadow: 0 0 4px 0.5px rgba(0, 0, 0, 0.1), 0 0 10px 1px rgba(0, 0, 0, 0.12);
+          transform:scale(1.010);
+
+          @media (--xs) {
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            transform:scale(1);
+          }
+
+          h3 a {
+            text-decoration: underline;
+          }
+          .image {
+            &:before {
+              background-color: color(black a(3%));
+            }
+          }
+        }
+
+        /* VISA */
+        /*.visa__content {
+          display: none !important;
+        }*/
+
+        /* IMAGEN DEL PRODUCTO */
+        .image {
+          position: relative;
+
+          @media (--xs) {
+            flex-basis: 48%;
+          }
+
+          /* BACKGROUND IMAGE PRODUCTO */
+          &:before {
+            content:'';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: color(black a(2.7%));
+            z-index: 10;
+            pointer-events:none;
+          }
+        }
+
+        /* MUESTRA SOLO LOS PRIMEROS 3 */
+        &:nth-child(n+4) {
+          display: none;
+        }
+
+
+        /* PRICING */
+        .pricing-detalle {
+          @media (--xs) {
+            display: flex;
+            flex-direction: column;
+            padding-left: 1em;
+            flex-basis: 52%;
+          }
+
+          .visa__content {
+            order:1;
+          }
+
+          /* TITULO DEL PRODUCTO */
+          h3{
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 600;
+            @media (--xs) {
+              order:1;
+            }
+          }
+
+          /* PRICING CONTENT */
+          h3 + a {
+            @media (--xs) {
+              order:-1;
+            }
+          }
+
+        }
+
+        .prodPrice {
+          position: relative;
+          width: 100%;
+          display: inline-flex;
+          flex-direction: row;
+          align-items: baseline;
+          justify-content: flex-start;
+          font-size: 1em;
+
+
+          @media (--xs) {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          @media (--sm) {
+            font-size: 0.65em;
+          }
+
+          @media (--md) {
+            font-size: 0.65em;
+          }
+
+          @media (--lg) {
+            font-size: 0.88em;
+          }
+
+
+          .ListPrice {
+            font-size: 1.41667em;
+            white-space: nowrap;
+            @media (--xs) {
+              font-size: 18px;
+              line-height: 1.11;
+              letter-spacing: -0.4px;
+              margin-bottom: 0.2em;
+            }
+          }
+          .BestPrice {
+            font-size: 1.75em;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            margin: 0 .6em 0 .5em;
+            white-space: nowrap;
+            @media (--xs) {
+              font-size: 25px;
+              line-height: 1.03;
+              letter-spacing: -0.7px;
+              margin: 0;
+            }
+          }
+
+          .pill  {
+            margin-top: 0;
+            /*margin-left: auto;*/
+            align-self: center;
+
+            @media (--xs) {
+              align-self: flex-start;
+              order:-1;
+              margin-top: 0;
+              margin-bottom: 0.7em;
+            }
+            .ListPriceMinusBestPriceInPercent {
+              padding: 0.25em 0.55em;
+              font-size: 0.92em;
+              background-image: linear-gradient(74deg, $rojo, $naranja) !important;
+              border-color: $naranja;
+              color:white;
+              font-weight: 500;
+              letter-spacing: -0.3px;
+              white-space: nowrap;
+              &:after {
+                color:white;
+              }
+              @media (--xs) {
+                font-size: 14px;
+              }
+              @media (--sm) {
+                font-size: .90em;
+              }
+              @media (--md) {
+                font-size: .92em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

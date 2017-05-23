@@ -1,0 +1,102 @@
+/* GENERALES PARA PRELANDING */
+.content-interno {
+  margin-top: 0;
+}
+.module {
+  .container {
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+  .row {
+    padding: $padd_Top_Bottom_SM 0;
+
+    @media (--xs) {
+      padding: $padd_Top_Bottom_XS $padd_Left_Right_XS;
+    }
+
+    @media (--sm) {
+      padding: $padd_Top_Bottom_SM $padd_Left_Right_SM;
+    }
+  }
+}
+
+/* --------------------------------------------- */
+
+/* CLASES GENERALES  EL SITIO */
+
+.landHotsale {
+
+  section,
+  aside {
+    width: 100%;
+    position: relative;
+  }
+
+  /* BOTÓN VER MÁS */
+  .openmodule {
+    position: relative;
+    width: 100%;
+    display: inline-flex;
+    justify-content:center;
+
+    &__content {
+      display: inline-flex;
+      justify-content:center;
+      flex-direction:row;
+      align-items:center;
+      height: 100%;
+      padding: 1.2em 1em;
+      margin: 0;
+      color:$active_hover;
+      cursor:pointer;
+
+      &:hover,
+      &:focus {
+        h3 {
+          text-decoration: underline;
+        }
+        i {
+          text-decoration: none;
+        }
+      }
+
+      h3 {
+        font-size: 1.3em;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: -0.3px;
+        margin-right: 0.5em;
+        margin: 0;
+      }
+
+      i {
+        position: relative;
+        margin-top: 1px;
+      }
+    }
+  }
+
+  /* LINEA SEPARADORA */
+  .separation__line {
+    position: relative;
+    border-bottom: 1px solid $grey_dd;
+    width: 100%;
+    display: block;
+  }
+
+  /* TITULOS DE SECTIONS */
+  &__bigTitle {
+    width: 100%;
+    padding-bottom: 1.5em;
+    h2 {
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.57;
+      letter-spacing: -0.3px;
+      color: #000000;
+      text-align: center;
+    }
+  }
+
+}

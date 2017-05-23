@@ -1,0 +1,82 @@
+/*
+  EN EL FOOTER DE CADA PRODUCTO ESTÁ EL DESCUENTO DE LA TARJETA, CUOTAS,
+  PRECIO FINANCIADO, CFT, TEA.
+*/
+
+.visa {
+	$total 	: 100%;
+	$first 	: 15%;
+	$second : calc($total - $first);
+
+	&__content {
+		position: relative;
+		display: block;
+		float: left;
+		width: 100%;
+		margin-top: 1.0em;
+		/*padding: 0 5%;*/
+		box-sizing:border-box;
+    font-weight: 500;
+
+
+		/* PRECIO DE CUOTA DE IMAGEN */
+		.visa__pricing {
+			width: 100%;
+			display:flex;
+
+			/* IMAGEN */
+			.visa__img {
+				width: $first;
+				float: left;
+				max-width: 26px;
+				max-height: 17px;
+				margin: 0;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				img {
+					display: block;
+					max-width: 100%;
+					min-width: 28px;
+					width: 100%;
+				}
+			}
+
+			/* CUOTAS */
+			.visa__cuotas {
+				width: $second;
+				float: left;
+				box-sizing:border-box;
+				padding-left: 0.5em;
+
+				span {
+				  font-size: 16px;
+				  line-height: 1;
+				  letter-spacing: -0.2px;
+				  color: black;
+					/*&.visa__cantidadCuotas {}
+					&.visa__valorCuota {}*/
+				}
+			}
+		}
+
+		/* PRECIO FINANCIADO Y CFT/TEA */
+		.visa__total {
+			width: 100%;
+			display: block;
+			float: left;
+			margin-top: 0.3em;
+
+			p {
+			  font-size: 12px;
+			  line-height: 1.5;
+			  letter-spacing: -0.2px;
+			  color: $grey_66;
+			  margin: 0;
+			  display: block;
+				/*&.visa__total__financiado {}
+				&.visa__total__teaCft {}*/
+			}
+		}
+	}
+}
