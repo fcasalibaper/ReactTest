@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
+var cssnano = require('cssnano');
 
 var entries = {
   home: ['./src/home/index.js'],
@@ -8,11 +10,12 @@ var entries = {
 }
 
 module.exports = {
-  context: __dirname,
+  // context: __dirname,
   entry: entries,
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    path: path.join(__dirname, 'dist'),
+    publicPath: './dist/',
+    filename: '[name]/[name].bundle.js'
   },
 
 	module: {
@@ -31,33 +34,32 @@ module.exports = {
       },
       {
         test: /\.css$/,
-				// include: path.join(__dirname, "src"),
-        use:[
-          {
-            loader:'style-loader'
-          },
-          {
-            loader:'css-loader'
-          },
-          {
-            loader:'postcss-loader',
-            options:{
-              plugins:function(){
-                return [
-                  require("postcss-import")(),
-                  require("postcss-url")(),
-                  require("postcss-mixins")(),
-                  require("postcss-extend")(),
-                  require("postcss-nested")(),
-                  require("postcss-simple-vars")(),
-                  require("postcss-cssnext")({
-                    compress: true
-                  })
-                ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader:'css-loader'
+            },
+            {
+              loader:'postcss-loader',
+              options:{
+                plugins:function(){
+                  return [
+                    require("postcss-import")(),
+                    require("postcss-url")(),
+                    require("postcss-mixins")(),
+                    require("postcss-extend")(),
+                    require("postcss-nested")(),
+                    require("postcss-simple-vars")(),
+                    require("postcss-cssnext")(),
+                    require('cssnano')()
+                  ]
+                }
               }
             }
-          }
-        ]
+          ]
+        })
+
       }
 		]
 	},
@@ -65,11 +67,12 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'dist'),
     compress: true,
     hot: false,
-    open:true,
+    // open:true,
     stats: "errors-only",
     port: 2323
   },
   plugins: [
+    // HOME
     new HtmlWebpackPlugin({
       title: 'home',
       minify : {
@@ -81,6 +84,7 @@ module.exports = {
       chunks: ['home']
     }),
 
+    // VITRINAS
     new HtmlWebpackPlugin({
       title: 'vitrinas',
       minify : {
@@ -90,6 +94,11 @@ module.exports = {
       template: './src/vitrinas/index.html',
       hash:true,
       chunks: ['vitrinas']
+    }),
+
+    // CSS
+    new ExtractTextPlugin({
+        filename: '[name]/[name].bundle.css'
     })
   ]
 };
