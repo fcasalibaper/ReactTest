@@ -1,0 +1,64 @@
+/*
+  PRECIOS, DESCUENTOS, CUOTAS
+*/
+.prodPrice {
+  position: relative;
+  margin-top: -2px;
+  display: block;
+  .ListPrice,
+  .BestPrice {
+    font-weight: 500;
+    font-style: normal;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+    @media (max-width:767px) and (min-width:481px){
+      font-size: 15px;
+    }
+    @media (min-width:768px) {
+      font-size: 18px;
+    }
+  }
+
+  .ListPrice {
+    color:$grey_99;
+    text-decoration: line-through;
+  }
+
+  /*PILL*/
+  .pill {
+    position: relative;
+    margin-top: 5px;
+    .ListPriceMinusBestPriceInPercent {
+      top: 0;
+      left: 0;
+      background-color: $magenta;
+      border: 1px solid $magenta;
+      border-radius: 2px;
+      padding: 1px 4px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: -0.3px;
+      color: white;
+      display:table;
+
+      @media (max-width: 480px) {
+        font-size: 13px;
+      }
+      @media (max-width:767px) and (min-width:481px){
+        font-size: 12px;
+      }
+
+      /* OFF */
+      &:after {
+        content: ' OFF';
+        display:inline-block;
+        position: relative;
+        margin-left: 0.3em;
+      }
+    }
+  }
+
+}

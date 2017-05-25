@@ -1,0 +1,134 @@
+.samsS8__full {
+  &__comparative {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    margin: 3em 0;
+
+    &__box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+      margin: 0 7em;      
+
+      @media (--xs) {
+        margin: 0 1em;
+      }
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer {
+        margin-top: 2em;
+        display: flex;
+      }
+    }
+
+    /* IMAGES */
+    &__img {
+      &__logo {
+        margin-top: 1.5em;
+      }
+    }
+  }
+
+  /* DETAIL */
+  &__detail {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 1.5em 10% 1.5em 0;
+
+      @media (--xs) {
+        padding-right: 0;
+        flex-wrap:wrap;
+      }
+
+      @media (--mayor-a-sm) {
+        border-top: solid 1px #d8d8d8;
+      }
+
+      @media (--sm) {
+        padding-right: 2em;
+      }
+
+      &:last-child {
+        @media (--xs) {
+          padding-bottom: 0;
+        }
+
+        @media (--mayor-a-sm) {
+          border-bottom: solid 1px #d8d8d8;
+        }
+      }
+
+      span {
+        $full     : 100%;
+        $first    : 40%;
+        $others   : calc( $full - $first  );
+
+        width: $others;
+        position: relative;
+        font-size: 15px;
+        font-weight: 300;
+        text-align: left;
+        color: #000000;
+
+        @media (--xs) {
+          width: 50%;
+        }
+
+        b {
+          font-weight: 500;
+        }
+
+        &:first-child {
+          width: $first;
+
+          @media (--xs) {
+            width: 100%;
+            margin-bottom: 1em;
+            border-bottom: solid 1px #d8d8d8;
+            padding-bottom: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  /* VOLVER */
+  &__btnvolver {
+    position: relative;
+    width: 100%;
+    background-color: white;
+
+    .row {
+      padding: 0 0 3em;
+
+      @media (--xs) {
+        border-top: solid 1px #d8d8d8;
+        padding: 1em 0;
+      }
+    }
+
+    a.btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      color:black;
+    }
+  }
+}

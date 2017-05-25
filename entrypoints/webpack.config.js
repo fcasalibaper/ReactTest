@@ -6,7 +6,8 @@ var cssnano = require('cssnano');
 
 var entries = {
   home: ['./src/home/index.js'],
-  vitrinas: ['./src/vitrinas/index.js']
+  vitrinas: ['./src/vitrinas/index.js'],
+  samsungs8: ['./src/samsungs8/index.js']
 }
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
   entry: entries,
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: './dist/',
+    // publicPath: './dist/',
     filename: '[name]/[name].bundle.js'
   },
 
@@ -64,10 +65,10 @@ module.exports = {
 		]
 	},
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'src'),
     compress: true,
     hot: false,
-    // open:true,
+    open:true,
     stats: "errors-only",
     port: 2323
   },
@@ -96,9 +97,26 @@ module.exports = {
       chunks: ['vitrinas']
     }),
 
+    // SAMSUNG S8
+    new HtmlWebpackPlugin({
+      title: 'samsungs8',
+      minify : {
+        collapseWhitespace:false
+      },
+      filename:'./samsungs8/index.html',
+      template: './src/samsungs8/index.html',
+      hash:true,
+      chunks: ['samsungs8']
+    }),
+
     // CSS
     new ExtractTextPlugin({
         filename: '[name]/[name].bundle.css'
-    })
+    }),
+
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })    
   ]
 };

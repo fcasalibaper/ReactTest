@@ -1,0 +1,112 @@
+/*
+  ESTILOS GENEREALES DE LA VITRINA
+*/
+.vitrina-module {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  z-index: 1;
+  .container {
+    margin:auto;
+  }
+}
+.shelf {
+  position:relative;
+  display: block;
+  width: 100%;
+  float: left;
+
+  /* TITLE VITRINA */
+  h2 {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.45;
+    padding: 15px $padd_content;
+    margin: 0;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+    @media (max-width:767px) and (min-width:481px){
+      font-size: 16px;
+    }
+
+    a.ver-mas {
+      color: $active_hover;
+      text-decoration: none;
+      font-size: 0.7em;
+      margin-left: 1.5em;
+
+      &:hover {
+        text-decoration:underline;
+      }
+
+    }
+  }
+
+  /* TITLE PRODUCTO */
+  h3 {
+    width: 100%;
+    display: inline-block;
+    /*overflow: hidden;*/
+    min-height:38px;
+    max-height:38px;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 400;
+    margin: 9px 0 9px;
+    text-transform: uppercase;
+
+    a {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  /*CADA LI*/
+  li {
+    padding: 14px;
+    border-right:1px solid $grey_ee;
+
+    /* CADA CINCO LI´S SACA BORDER-RIGHT */
+    @media (max-width: 480px) {
+      &:nth-child(2n) {
+        border-right:0 solid transparent;
+      }
+    }
+    @media (max-width:767px) and (min-width:481px){
+      &:nth-child(4n) {
+        border-right:0 solid transparent;
+      }
+    }
+    @media (min-width:768px) {
+      &:nth-child(5n) {
+        border-right:0 solid transparent;
+      }
+    }
+
+    a {
+      color: $black;
+      text-decoration:none;
+      width: 100%;
+    }
+  }
+
+  /*IMAGE PRODUCT*/
+  .image {
+    position: relative;
+    img {
+      position: relative;
+      height:auto;
+      display:block;
+      max-width: 100%;
+    }
+  }
+
+  /*OCULTOS*/
+  .rating-produto,
+  .thickbox,
+  .brand,
+  .prod_footer
+    {display:none;}
+}

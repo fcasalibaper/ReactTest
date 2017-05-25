@@ -1,0 +1,143 @@
+.samsS8 {
+  width: 100%;
+  position: relative;
+
+  &__header {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .bgEarth {
+      position: absolute;
+      width: 100%;
+      height: 100%;      
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+
+    /* BG GRADIENT BLACK */
+    &:after {
+      content:'';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 10em;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
+      z-index: 0;
+    }
+
+    .container {
+      height: 100%;
+      min-height: 100%;
+    }
+
+    .row {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      @media (--xs) {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4em;
+        padding-bottom: 8em;
+      }
+    }
+
+    /*LOGO*/
+    /*&__logo {}*/
+    &__logo,
+    &__preventa {
+      padding-top: 2em;
+
+      @media (--xs) {
+        padding-top: 0;
+      }
+    }
+
+    &__preventa {
+      display: flex;
+      flex-direction: column;
+      flex-wrap:wrap;
+      align-items: flex-end;
+
+      @media (--xs) {
+        align-items: center;
+      }
+
+      .btn {
+        margin-top: 0.5em;
+      }
+    }
+
+    /* PHONE */
+    &__phone {
+      position: relative;
+
+      @media (--xs) {
+        padding: 3.5em 0;
+      }
+
+      /* SIN LIMITES */
+      .samsS8__header__sinlimites {
+        $sz : 22.8vw;
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        //transform: translateX(-50%) translateY(-90%);
+        margin-left: -calc($sz / 2);
+        max-width: $sz;
+        z-index: 2;
+
+        @media (--xs) {
+          $szs : 60vw;
+          max-width: 60vw;
+          margin-left: -calc($szs / 2);
+          max-width: $szs;
+        }
+      }
+
+      /* ASTRONAUTA */
+      .samsS8__header__astronauta {
+        $size : 9.4vw;
+
+        position: absolute;
+        top: 20%;
+        left: 95%;
+        //transform: translateX(20%) translateY(-60%);
+        margin-left: -calc($size / 2);
+        max-width: $size;
+        z-index: 0;
+        transition: all 350ms $cubic-out;
+
+        @media (--xs) {
+          max-width: 30vw;
+        }
+      }
+
+      /* PHONE */
+      .samsS8__header__phone__img {
+        position: relative;
+        z-index: 1;
+        max-width: 13vw;
+
+        @media (--xs) {
+          max-width: 35vw;
+        }
+      }
+    }
+
+  }
+
+  /* BG */
+  &__bgEarth {
+    position: absolute;
+    width: 100%;
+  }
+}

@@ -1,0 +1,109 @@
+.samsS8 {
+  /* TEXTO */
+  &__text {
+    h1 {
+      font-size: 4.4em;
+      line-height: 1;
+      font-weight: 600;
+      text-align: left;
+      color: $celeste;
+
+      @media (--xs) {
+        font-size: 2.3em;
+      }
+
+      @media (--sm) {
+        font-size: 2.0em;
+      }
+
+      small {
+        display: block;
+        width: 100%;
+        font-weight: 400;
+        font-size: 0.4em;
+        text-align: center;
+        color: white;
+        margin-bottom: 0.75em;
+
+        @media (--xs) {
+          font-size: 0.55em;
+        }
+
+        @media (--sm) {
+          font-size: 0.88em;
+        }
+      }
+      span {
+        display: flex;
+        width: 100%;
+        font-size: 0.88em;
+      }
+    }
+    p {
+      margin-top: 1.5em;
+      color:white;
+      font-size: 20px;
+      text-align: justify;
+      color: #cccccc;
+
+      @media (--xs) {
+        font-size: 1.6em;
+        line-height: 1.4;
+      }
+
+      @media (--sm) {
+        font-size: 1.4em;
+        line-height: 1.4;
+      }
+    }
+    footer {
+      width: 100%;
+      display: flex;
+      margin-top: 4em;
+    }
+
+    /* VARIABLES */
+    &--left {
+      h1,
+      p {
+        text-align: left;
+      }
+    }
+
+    &--vw {
+
+      @media (--sm) {
+        font-size: 0.90vw;
+      }
+
+      @media (--lg) {
+        font-size: 0.90vw;
+      }
+
+      @media (--xl) {
+        font-size: 0.64vw;
+      }
+    }
+
+
+    &--center {
+      max-width: 55em;
+      h1,
+      h1 small,
+      p {
+        text-align: center;
+
+        @media (--xs) {
+          text-align: left;
+        }
+      }
+      footer {
+        justify-content: center;
+
+        @media (--xs) {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.samsS8__full {
+  position: relative;
+
+  .samsS8__half__img {
+    position: absolute;
+
+    &--bottom {
+      bottom: 0;
+    }
+
+    &--right {
+      right: 2em;
+      max-width: 13vw;
+    }
+  }
+
+  /* IMAGES */
+  &__img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+
+    &--right {
+      align-items: flex-end;
+
+      img {
+
+        @media (--xs) {
+          width: 94vw;
+        }
+
+        @media (--mayor-a-sm) {
+          width: 76.5vw;
+        }
+
+        @media (--xl) {
+          max-width: 70vw;
+        }
+      }
+    }
+
+    &--center {
+      align-items: center;
+    }
+
+    &--absolute {
+      position: absolute;
+
+      @media (--xs) {
+        display: none !important;
+      }
+    }
+
+    &__box {
+      width: 100%;
+
+      img {
+        width: 100%;
+
+        /* PHONE */
+        &.samsS8__box__bg {
+          position: relative;
+          width: 100%;
+
+          @media (--xs) {
+            position: relative;
+            min-width: 180%;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+
+        /* PHONE */
+        &.samsS8__box__phone {
+          $sz : 39vw;
+          position: absolute;
+          overflow: hidden;
+          max-width: $sz;
+          background-position: 50%;
+          background-size: 98% 98%;
+          background-repeat: no-repeat;
+          border-radius: 45px;
+          top: 50%;
+          left: 50%;
+          /*transform: translateX(-50%) translateY(-50%);*/
+          margin-left: -calc($sz / 2);
+          margin-top: -calc($sz - 55 / 2);
+
+          @media (--xs) {
+            border-radius: 25px;
+            $szx : 80vw;
+            max-width: $szx;
+            margin-left: -calc($szx / 2);
+            margin-top: -calc($szx / 2);
+          }
+        }
+      }
+    }
+  }
+}

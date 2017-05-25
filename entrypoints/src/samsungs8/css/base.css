@@ -1,0 +1,23 @@
+.module {
+  .container {
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+
+    &--full {
+      min-width: 100%;
+      width: 100%;
+    }
+  }
+  .row {
+    padding: $padd_Top_Bottom_SM 0;
+
+    @media (--xs) {
+      padding: $padd_Top_Bottom_XS $padd_Left_Right_XS;
+    }
+
+    @media (--sm) {
+      padding: $padd_Top_Bottom_SM $padd_Left_Right_SM;
+    }
+  }
+}
