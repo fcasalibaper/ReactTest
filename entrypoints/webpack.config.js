@@ -22,7 +22,7 @@ module.exports = {
 	module: {
     rules: [
       {
-        test: /\.jsx|\.js$/,
+        test: /\.js$/,
         loader: 'babel-loader',
 				// include: path.join(__dirname, "src"),
         exclude: /node_modules/,
@@ -112,11 +112,8 @@ module.exports = {
     // CSS
     new ExtractTextPlugin({
         filename: '[name]/[name].bundle.css'
-    }),
+    })
 
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-    })    
+
   ]
 };
