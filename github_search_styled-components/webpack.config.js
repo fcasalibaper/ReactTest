@@ -31,9 +31,6 @@ module.exports = {
           use: [
             {
               loader:'css-loader'
-            },
-            {
-              loader:'postcss-loader'
             }
           ]
         })
@@ -50,7 +47,7 @@ module.exports = {
   },
 	plugins: [
 		new HtmlWebpackPlugin({
-      title: 'Todo list',
+      title: 'Github profile with styled-components',
       minify : {
         collapseWhitespace:false
       },

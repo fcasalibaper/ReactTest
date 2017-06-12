@@ -5,6 +5,7 @@ import { injectGlobal } from 'styled-components';
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+  @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
   :root {font-size: 14px;}
 
   body,html {

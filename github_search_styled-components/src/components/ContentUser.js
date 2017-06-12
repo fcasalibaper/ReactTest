@@ -15,39 +15,29 @@ const AppProfile = styled.article`
   z-index: 9;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   padding: calc(2em / 4) calc(2em / 1.2);
   border-radius:100px;
   color:pink;
   font-size: calc(2em / 1.5);
   text-decoration:none;
+  border:2px solid #9e98ff;
+  outline:none;
   transition:all 200ms linear;
   font-weight: 500;
   letter-spacing: 0.08em;
-  overflow: hidden;
   background-color:white;
   position:relative;
   text-transform:uppercase;
+  overflow:hidden;
   box-shadow: 0 0 0 rgba(146,168,209, 0), 0 0 0 rgba(146,168,209, 0);
-
-  &:after {
-    content:'';
-    position: absolute;
-    border-radius:100px;
-    top: $size;
-    left: $size;
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
-    background-color: white;
-  }
 
   &:hover,
   &:focus {
+    outline:none;
     text-decoration:none;
-    color:$lightblue;
-    border-color: $lightblue;
+    border-color: #3b32c7;
     box-shadow: 0 14px 28px rgba(146,168,209, 0.15), 0 10px 10px rgba(146,168,209, 0.12);
-    @mixin bgLinear $pink, $lightblue, 0%, 70%, -80deg;
   }
 
   span {
@@ -125,7 +115,6 @@ const AppImages = styled.div`
 
 const MyData = styled.div`
   padding: 0 2em 2em;
-  margin-top: calc(2em / 1.2);
   width: 100%;
   text-align:center;
   h1 {
@@ -135,6 +124,7 @@ const MyData = styled.div`
     color:black;
     display:flex;
     flex-direction:column;
+    margin-top:0.5em;
 
     small,
     a {
@@ -149,21 +139,19 @@ const MyData = styled.div`
       display: inline-block;
       text-transform: uppercase;
     }
-
-
   }
 `;
 
 const UlData = styled.ul`
   overflow: hidden;
   position: relative;
-  margin-top:calc(2em / 3);
+  margin-top:calc(1em / 3);
   display:flex;
   align-items:center;
   justify-content:space-around;
   flex-direction: row;
   flex-wrap: nowrap;
-  border: 2px solid lightgrey;
+  border: 1px solid lightgrey;
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
@@ -195,8 +183,8 @@ const UlData = styled.ul`
     }
 
     &:nth-child(2) {
-      border-left: 2px solid rgba(0,0,0, 0.10);
-      border-right: 2px solid rgba(0,0,0, 0.10);
+      border-left: 0.5px solid rgba(0,0,0, 0.10);
+      border-right: 0.5px solid rgba(0,0,0, 0.10);
     }
     span {
       display:block;
@@ -269,7 +257,6 @@ export default class ContentUser extends React.Component {
 
   render() {
     return (
-
       <AppProfile>
 
         <Searchbox  changeUser={this.changeUser}
@@ -298,8 +285,7 @@ export default class ContentUser extends React.Component {
                   target="_self">{this.state.email}
               </a>
             </h1>
-            <Button  href={this.state.url}
-                target="_blank"><span>Profile</span>
+            <Button  href={this.state.url} target="_blank"><span>Profile</span>
             </Button>
           </MyData>
 

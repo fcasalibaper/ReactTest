@@ -15,12 +15,18 @@ const Button = styled.button`
 	position: relative;
 	background-color: transparent;
 	border: 0;
-	color: lightblue;
 	padding-left: 2em;
 	transition:all 200ms linear;
 	i {
+		color: #9e98ff;
 		cursor: pointer;
-		font-size: calc(1em * 1.4);
+		font-size: calc(2em * 1.4);
+		font-family: 'Material Icons';
+		text-rendering: optimizeLegibility;
+		font-feature-settings: "liga" 1;
+		font-style: normal;
+		text-transform: none;
+		line-height: 1;
 	}
 	&:hover,
 	&:focus {
