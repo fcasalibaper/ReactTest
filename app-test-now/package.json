@@ -1,0 +1,21 @@
+{
+  "name": "app-test-now",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "next": "^3.0.1-beta.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "styled-components": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
